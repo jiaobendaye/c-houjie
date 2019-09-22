@@ -1,8 +1,7 @@
 #include <iostream>
-
-//using namespace std;
+using namespace std;
 int main()
 {
-	std::cout << __cplusplus;
+	cout << __cplusplus<<endl;
 	return 0;
 }

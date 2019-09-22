@@ -1,15 +1,18 @@
 #ifndef __COMPLEX__
 #define __COMPLEX__
 
+#include "complex.h"
+#include <iostream>
+using namespace std;
 
 //0 forward declarations 
-#include <cmath>
+/*#include <cmath>
 class ostream;
 class complex;
 
 complex&
  __doapl (complex* ths, const conplex& r);
-
+*/
 //1 Class declarations
 class complex
 {
@@ -26,7 +29,6 @@ private:
   friend complex& __doapl (complex*, const complex&);
 
 };
-
 //2 Class definition
 //2-1 
 inline complex&
@@ -40,7 +42,7 @@ __doapl(complex* ths, const complex& r)
 inline complex&
 complex::operator += (const complex& r)
 {
-  return __dopal (this, r);
+  return __doapl (this, r);
 }
 //2-2
 inline double
@@ -63,13 +65,13 @@ c2 = 3 + c1
 */
 // return by value
 inline complex
-operator + (const comples& x, const complex& y)
+operator + (const complex& x, const complex& y)
 {//temp object : typename ();
   return complex (real (x) + real (y), 
 		 imag (x) + imag (y));
 }
 inline complex
-operator + (const comples& x, double y)
+operator + (const complex& x, double y)
 {
   return complex (real (x) + y, imag (x));
 }
@@ -127,6 +129,7 @@ inline bool
 operator != (double x, const complex& y)
 {
   return x != real (y) || imag (y) != 0;
+}
 /*2-7
 cout << c1 << conj(c1);
 */
@@ -135,7 +138,6 @@ conj (const complex& x)
 {
   return complex (real (x), -imag (x));
 }
-#include <iostream.h>
 ostream&
 operator << (ostream& os, const complex& x)
 {
